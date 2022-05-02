@@ -25,14 +25,15 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
+	@NotNull(message = "É obrigatorio inserir o nome completo.")
 	@Size(min = 14)
 	private String nomeCompleto;
 	
 	@CPF
+	@NotNull(message = "É obrigatorio inserir o CPF")
 	private String cpf;
 	
-	@NotNull
+	@NotNull(message = "É obrigatorio inserir a data de nascimento")
 	private String dataDeNascimento;
 	
 	@NotNull
@@ -42,7 +43,7 @@ public class Cliente {
 	@NotNull
 	private String endereco;
 	
-	@NotNull
+	@NotNull(message = "É obrigatorio inserir o numero da carteirinha")
 	private String numeroDaCarteirinha;
 
 	@ManyToOne
