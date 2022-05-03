@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -105,7 +106,7 @@ public class ExameController {
 			@ApiResponse(responseCode = "400", description = "Erro na requisição", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Erro na aplicação", content = @Content) })
 	@PostMapping
-	public ResponseEntity<Exame> postExame(@Valid @PathVariable Exame exame){
+	public ResponseEntity<Exame> postExame(@Valid @RequestBody Exame exame){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(exame));
 	}
 	
@@ -117,7 +118,7 @@ public class ExameController {
 			@ApiResponse(responseCode = "400", description = "Erro na requisição", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Erro na aplicação", content = @Content) })
 	@PutMapping
-	public ResponseEntity<Exame> puttExame(@Valid @PathVariable Exame exame){
+	public ResponseEntity<Exame> puttExame(@Valid @RequestBody Exame exame){
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(exame));
 	}
 	
